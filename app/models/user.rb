@@ -6,6 +6,6 @@ class User < ApplicationRecord
   has_many :tracks, dependent: :destroy
 
   def admin?
-    admin
+    admin == 'true'
   end
 end

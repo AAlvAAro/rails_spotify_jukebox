@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "users/registrations" }
 
-  get 'home/index'
+  get 'playlist/index'
   get 'users/spotify'
   get '/auth/spotify/callback', to: 'users#spotify'
 
-  resources :playlists, only: :index
+  resources :home, only: :index
   resources :artists, only: [:index, :show]
   resources :tracks, only: [:index] do
     member do
@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:index, :show]
 
-  root 'home#index'
+  root 'playlist#index'
 end

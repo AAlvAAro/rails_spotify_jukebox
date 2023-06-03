@@ -1,0 +1,24 @@
+<div class="col-md-10 text-center" data-controller="tracks">
+	<% if @tracks.any? %>
+		<h4 class="mb-5">Canciones a agregar al playlist:</h4>
+
+		<div class="row mb-5">
+			<% @tracks.each do |track| %>
+				<div class="col-md-4 col-sm-6">
+					<div class="card" style="width: 10rem; height: 25rem; margin-bottom: 1em;">
+						<%= image_tag track.album_image_url, class: "card-img-top", alt: 'https://via.placeholder.com/160x160' %>
+						<div class="card-body text-center">
+							<h5 class="card-title"><%= track.name %></h5>
+							<p><b>Artista: </b><%= track.artist %></p>
+							<% if false %>
+								<%= link_to 'Quitar de la lista', nil, class: 'btn btn-warning', data: { action: 'click->tracks#removeFromPlaylist', track_id: track.spotify_track_id } %>
+							<% end %>
+						</div>
+					</div>	
+				</div>
+			<% end %>
+		</div>
+	<% else%>
+		<h4 class="mb-5">Aun no hay canciones para agregar al playlist. </h4>
+	<% end %>
+</div>
