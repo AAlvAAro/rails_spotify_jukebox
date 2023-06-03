@@ -31,7 +31,7 @@ gem "cssbundling-rails"
 gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
+gem "redis", "~> 4.0"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -51,25 +51,15 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-gem "aws-sdk-s3"
 gem "devise"
 gem "figaro"
-gem "kaminari"
-gem "pg_search"
-
-# Monitoring tools
-gem 'airbrake'
-gem 'scout_apm'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 
-  gem "factory_bot_rails"
-  gem "faker"
   gem "pry-rails"
   gem "rspec-rails"
-  gem "shoulda-matchers"
 end
 
 group :development do
@@ -81,8 +71,6 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
-  gem "letter_opener"
-  gem "rails-erd"
 end
 
 group :test do
