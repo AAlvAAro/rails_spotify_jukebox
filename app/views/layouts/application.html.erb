@@ -23,13 +23,16 @@
           </button>
 
           <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav justify-content-end">
               <% if user_signed_in? %>
                 <li class="nav-item">
                   <%= link_to 'Mis Canciones', current_user, class: 'nav-link' %>
                 </li>
                 <li class="nav-item">
                   <%= link_to 'Canciones', tracks_path, class: 'nav-link' %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to 'Artistas', artists_path, class: 'nav-link' %>
                 </li>
                 <li class="nav-item">
                   <%= button_to 'Salir', destroy_user_session_path, class: 'nav-link', method: :delete, class: 'btn btn-link nav-link' %>
