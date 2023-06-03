@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :tracks, only: [:index] do
     member do
       post :add_to_playlist
+      post :remove_from_playlist
     end
   end
   resources :users, only: [:index, :show]
