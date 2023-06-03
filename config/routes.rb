@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'users/spotify'
   get '/auth/spotify/callback', to: 'users#spotify'
 
+  resources :playlists, only: :index
   resources :artists, only: [:index, :show]
   resources :tracks, only: [:index] do
     member do
