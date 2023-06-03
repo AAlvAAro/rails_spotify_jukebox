@@ -17,8 +17,4 @@
 			<% end %>
 		</div>
 	<% end %>
-
-	<% if current_user.admin? %>
-		<%= link_to 'Autenticar Aplicacion con Spotify', '/auth/spotify', method: :post, class: 'btn btn-success' %>
-	<% end %>
 </div>

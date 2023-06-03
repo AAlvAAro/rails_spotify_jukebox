@@ -5,7 +5,7 @@
 		<div class="row mb-5">
 			<% @tracks.each do |track| %>
 				<div class="col-md-4 col-sm-6">
-					<div class="card" style="width: 10rem; height: 25rem; margin-bottom: 1em;">
+					<div class="card" style="width: 20rem; height: 25rem; margin-bottom: 1em;">
 						<%= image_tag track.album_image_url, class: "card-img-top", alt: 'https://via.placeholder.com/160x160' %>
 						<div class="card-body text-center">
 							<h5 class="card-title"><%= track.name %></h5>

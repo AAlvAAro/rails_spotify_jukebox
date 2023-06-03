@@ -9,12 +9,16 @@
 <div class="row" data-controller="tracks">
 	<% @top_tracks.each do |track| %>
 		<div class="col-md-4 col-sm-6">
-			<div class="card" style="width: 15rem; height: 30rem; margin-bottom: 1em;">
+			<div class="card" style="width: 20rem; height: 30rem; margin-bottom: 1em;">
 				<%= image_tag track.album.images.select{|i| i['height'] == 300 }.first['url'] || 'https://via.placeholder.com/300x300', class: "card-img-top", alt: 'https://via.placeholder.com/160x160' %>
 				<div class="card-body text-center">
 					<h5 class="card-title"><%= track.name %></h5>
 					<p><b>Album: </b><%= track.album.name %></p>
-					<%= link_to 'Agregar a Playlist', nil, class: 'btn btn-success', data: { action: 'click->tracks#addToPlaylist', track_id: track.id } %>
+					<% unless @track_ids.include?(track.id) %>
+						<%= link_to 'Agregar a Playlist', nil, class: 'btn btn-success', data: { action: 'click->tracks#addToPlaylist', track_id: track.id } %>
+					<% else %>
+						<b>La cancion ya ha sido agregada al playlist. Se tocara proximamante!</b>
+					<% end %>
 				</div>
 			</div>	
 		</div>

@@ -1,22 +1,27 @@
-<div class="col-md-10 offset-md-1 text-center" data-controller="tracks">
-	<% if @tracks.any? %>
-		<h4 class="mb-5">Canciones a agregar al playlist:</h4>
-
-		<div class="row mb-5">
-			<% @tracks.each do |track| %>
-				<div class="col-md-4 col-sm-6">
-					<div class="card" style="width: 15rem; height: 30rem; margin-bottom: 1em;">
-						<%= image_tag track.album_image_url, class: "card-img-top", alt: 'https://via.placeholder.com/160x160' %>
-						<div class="card-body text-center">
-							<h5 class="card-title"><%= track.name %></h5>
-							<p><b>Artista: </b><%= track.artist %></p>
-							<%= link_to 'Quitar de la lista', nil, class: 'btn btn-warning', data: { action: 'click->tracks#removeFromPlaylist', track_id: track.spotify_track_id } %>
-						</div>
-					</div>	
-				</div>
-			<% end %>
+<div class="text-center">
+	<div clas="row">
+		<div class="col-md-6">
+			<%= link_to 'Mis Canciones', current_user, method: :post, class: 'btn btn-success mb-3' %>
 		</div>
-	<% else%>
-		<h4 class="mb-5">Aun no hay canciones para agregar al playlist. </h4>
+		<div class="col-md-6">
+			<%= link_to 'Proximas canciones a agregar', playlist_index_path, method: :post, class: 'btn btn-info mb-3' %>
+		</div>
+	</div>
+	
+	<div clas="row">
+		<div class="col-md-6">
+			<%= link_to 'Mis Canciones', current_user, method: :post, class: 'btn btn-success mb-3' %>
+		</div>
+		<div class="col-md-6">
+			<%= link_to 'Proximas canciones a agregar', playlist_index_path, method: :post, class: 'btn btn-info mb-3' %>
+		</div>
+	</div>
+
+	<% if current_user.admin? %>
+		<hr>
+		<h3>Administrador</h3>
+		<p>
+			<%= link_to 'Autenticar Aplicacion con Spotify', '/auth/spotify', method: :post, class: 'btn btn-success' %>
+		</p>
 	<% end %>
 </div>
