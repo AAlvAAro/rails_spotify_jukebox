@@ -19,8 +19,4 @@
 	<% else%>
 		<h4 class="mb-5">Aun no hay canciones para agregar al playlist. </h4>
 	<% end %>
-
-	<% if current_user.admin? %>
-		<%= link_to 'Autenticar Aplicacion con Spotify', '/auth/spotify', method: :post, class: 'btn btn-success' %>
-	<% end %>
 </div>
