@@ -12,7 +12,8 @@ class TracksController < ApplicationController
   # Stimulus endpoints
   def add_to_playlist
     spotify_user = RSpotify::User.new(JSON.parse($redis.get('spotify_credentials')))
-    playlist = SpotifyPlaylist.find(spotify_user.id, @playlist.spotify_playlist_id)
+    playlist_id = $redis.get('playlist_id')
+    playlist = SpotifyPlaylist.find(spotify_user.id, playlist_id)
 
     track = RSpotify::Track.find(params[:id])
 
