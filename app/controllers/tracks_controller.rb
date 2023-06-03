@@ -1,4 +1,8 @@
 class TracksController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_playlist
+
+
   def index
     if params[:search].present?
       @tracks = RSpotify::Track.search(params[:search], limit: 3, market: 'MX')
@@ -8,9 +12,7 @@ class TracksController < ApplicationController
   # Stimulus endpoints
   def add_to_playlist
     spotify_user = RSpotify::User.new(JSON.parse($redis.get('spotify_credentials')))
-    # binding.pry
-    playlist_id = $redis.get('playlist_id')
-    playlist = SpotifyPlaylist.find(spotify_user.id, playlist_id)
+    playlist = SpotifyPlaylist.find(spotify_user.id, @playlist.spotify_playlist_id)
 
     track = RSpotify::Track.find(params[:id])
 
@@ -20,7 +22,8 @@ class TracksController < ApplicationController
         spotify_track_id: track.id,
         name: track.name,
         album_image_url: track.album.images.select{|i| i['height'] == 300 }.first['url'] || 'https://via.placeholder.com/300x300',
-        artist: track.artists.map(&:name).join(' & ')
+        artist: track.artists.map(&:name).join(' & '),
+        playlist_id: @playlist.id
       )
 
       render json: { track_name: track.name }, status: :ok
@@ -44,5 +47,11 @@ class TracksController < ApplicationController
     rescue => e
       render json: { error: e.message }, status: :unprocessable_entity
     end
+  end
+
+  private
+  
+  def set_playlist
+    @playlist = Playlist.find_or_create_by(name: 'Party playlist')
   end
 end
