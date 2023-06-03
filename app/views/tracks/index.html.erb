@@ -18,7 +18,11 @@
 						<div class="card-body text-center">
 							<h5 class="card-title"><%= track.name %></h5>
 							<p><b>Artista: </b><%= track.artists.map(&:name).join(' & ') %></p>
-							<%= link_to 'Agregar a Playlist', nil, class: 'btn btn-success', data: { action: 'click->tracks#addToPlaylist', track_id: track.id } %>
+							<% unless @track_ids.include?(track.id) %>
+								<%= link_to 'Agregar a Playlist', nil, class: 'btn btn-success', data: { action: 'click->tracks#addToPlaylist', track_id: track.id } %>
+							<% else %>
+								<b>La cancion ya ha sido agregada al playlist. Se tocara proximamante!</b>
+							<% end %>
 						</div>
 					</div>	
 				</div>

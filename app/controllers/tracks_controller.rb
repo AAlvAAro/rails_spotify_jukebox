@@ -7,6 +7,8 @@ class TracksController < ApplicationController
     if params[:search].present?
       @tracks = RSpotify::Track.search(params[:search], limit: 3, market: 'MX')
     end
+
+    @track_ids = Track.spotify_track_ids
   end
 
   # Stimulus endpoints
