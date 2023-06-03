@@ -26,6 +26,9 @@
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
                 <li class="nav-item">
+                  <%= link_to 'Mis Canciones', current_user, class: 'nav-link' %>
+                </li>
+                <li class="nav-item">
                   <%= link_to 'Canciones', tracks_path, class: 'nav-link' %>
                 </li>
                 <li class="nav-item">
