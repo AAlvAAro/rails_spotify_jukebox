@@ -18,7 +18,7 @@ class TracksController < ApplicationController
     track = RSpotify::Track.find(params[:id])
 
     begin
-      playlist.add_tracks!([track])
+      # playlist.add_tracks!([track])
       current_user.tracks.create(
         spotify_track_id: track.id,
         name: track.name,
