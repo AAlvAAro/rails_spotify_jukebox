@@ -4,17 +4,5 @@
 
 import { application } from "./application"
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
-
-import ProgramsController from "./programs_controller"
-application.register("programs", ProgramsController)
-
-import SearchController from "./search_controller"
-application.register("search", SearchController)
-
-import SearchExerciseController from "./search_exercise_controller"
-application.register("search-exercise", SearchExerciseController)
-
-import UtilsController from "./utils_controller"
-application.register("utils", UtilsController)
+import TracksController from "./tracks_controller"
+application.register("tracks", TracksController)
