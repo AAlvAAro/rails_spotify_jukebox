@@ -1,0 +1,22 @@
+@import '../node_modules/bootswatch/dist/sketchy/variables';
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+@import '../node_modules/bootswatch/dist/sketchy/bootswatch';
+@import '../node_modules/toastr/toastr';
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+
+#main {
+	margin-top: 1em;
+}
+
+.pagination-container * {
+  /* Custom styles for the pagination container */
+	padding: 2px;
+}
+
+.btn-group {
+	.btn {
+		border-radius: 5px !important;
+		margin: 0 10px 0 10px;
+	}
+}

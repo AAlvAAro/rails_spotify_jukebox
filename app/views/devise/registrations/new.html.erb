@@ -1,0 +1,46 @@
+<section class="h-100">
+  <div class="container h-100">
+    <div class="row justify-content-sm-center h-100">
+      <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+        <div class="text-center my-5">
+          <%= image_tag 'logo', alt: 'logo', width: 200 %>
+        </div>   
+        <div class="card shadow-lg">
+          <div class="card-body p-5">
+            <h1 class="fs-4 card-title fw-bold mb-4">Crea una cuenta</h1>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: 'needs-validation') do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
+              <br>
+              
+              <div class="mb-3">
+                <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control', placeholder: 'Nombre' %>
+              </div>
+              
+              <div class="mb-3">
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Correo electrónico' %>
+              </div>
+
+              <div class="mb-3">
+                <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', placeholder: 'Contraseña' %>
+              </div>
+
+              <div class="mb-3">
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', placeholder: 'Confirmar contraseña' %>
+              </div>
+
+              <div class="butt" style="margin-left: 30%;">
+                <%= f.submit "Registrarse", class: 'btn btn-primary ms-auto' %>
+              </div>
+            <% end %>
+          </div>
+          <div class="card-footer py-3 border-0">
+            <div class="text-center">
+              ¿Ya tienes cuenta?  
+              <%= link_to 'Ingresar', new_user_session_path, style: 'margin-left: 50px;' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
