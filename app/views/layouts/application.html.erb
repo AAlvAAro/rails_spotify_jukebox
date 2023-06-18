@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Spotify Rocola</title>
+    <title>Rocola</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -15,7 +15,7 @@
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
           <%= link_to root_path, class: 'navbar-brand' do %>
-						Spotify Rocola
+						Rocola
           <% end %>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,6 +25,9 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav justify-content-end">
               <% if user_signed_in? %>
+                <li class="nav-item">
+                  <%= link_to 'Playlist', root_path, class: 'nav-link' %>
+                </li>
                 <li class="nav-item">
                   <%= link_to 'Mis Canciones', current_user, class: 'nav-link' %>
                 </li>

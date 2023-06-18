@@ -8,7 +8,11 @@ task :add_tracks_to_playlist => :environment do
 	playlist = Playlist.find_by(name: 'Party playlist')
 	
 	if playlist.present?
-		tracks = User.joins(:tracks).group('users.id').select('users.*, MIN(tracks.created_at)').map(&:tracks).map(&:first)
+		tracks = User.joins(:tracks)
+			.group('users.id')
+			.select('users.*, MIN(tracks.created_at)')
+			.map(&:tracks)
+			.map(&:first)
 
 		tracks.each do |track|
 			spotify_track = RSpotify::Track.find(track.spotify_track_id)

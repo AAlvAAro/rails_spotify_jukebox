@@ -1,11 +1,11 @@
 <div class="col-md-10 offset-md-1 text-center" data-controller="tracks">
 	<% unless @tracks.nil? %>
-		<h4 class="mb-5">Canciones que has agregado al playlist:</h4>
+		<h4 class="mb-5">Canciones que se agregaran al playlist:</h4>
 
 		<div class="row mb-5">
 			<% @tracks.each do |track| %>
 				<div class="col-md-6 col-sm-12">
-					<div class="card" style="width: 20rem; height: 30rem; margin-bottom: 1em;">
+					<div class="card" style="height: 35rem; margin-bottom: 2em;">
 						<%= image_tag track.album_image_url, class: "card-img-top", alt: 'https://via.placeholder.com/160x160' %>
 						<div class="card-body text-center">
 							<h5 class="card-title"><%= track.name %></h5>
