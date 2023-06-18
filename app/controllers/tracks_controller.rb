@@ -37,8 +37,7 @@ class TracksController < ApplicationController
 
   def remove_from_playlist
     spotify_user = RSpotify::User.new(JSON.parse($redis.get('spotify_credentials')))
-    playlist_id = $redis.get('playlist_id')
-    playlist = SpotifyPlaylist.find(spotify_user.id, playlist_id)
+    playlist = SpotifyPlaylist.find(spotify_user.id, SPOTIFY_PLAYLIST_ID)
 
     track = RSpotify::Track.find(params[:track_id])
 

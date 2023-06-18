@@ -3,8 +3,7 @@ task :add_tracks_to_playlist => :environment do
   puts "Adding tracks to playlist ..."
 
 	spotify_user = RSpotify::User.new(JSON.parse($redis.get('spotify_credentials')))
-	playlist_id = $redis.get('playlist_id')
-	spotify_playlist = SpotifyPlaylist.find(spotify_user.id, playlist_id)
+	spotify_playlist = RSpotify::Playlist.find(spotify_user.id, SPOTIFY_PLAYLIST_ID)
 	playlist = Playlist.find_by(name: 'Party playlist')
 	
 	if playlist.present?

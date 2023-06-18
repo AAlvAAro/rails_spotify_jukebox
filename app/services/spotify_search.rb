@@ -10,7 +10,7 @@ class SpotifySearch
 	end
 
 	def self.tracks(query)
-		RSpotify::Track.search(query, limit: 15, market: 'MX')
+		RSpotify::Track.search(query, limit: 18, market: 'MX')
 	end
 
 	def self.albums(query)

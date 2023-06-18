@@ -3,8 +3,7 @@ class PlaylistsController < ApplicationController
   before_action :set_spotify_user
 
   def show
-    playlist_id = $redis.get('playlist_id')
-    @playlist = RSpotify::Playlist.find(@spotify_user.id, playlist_id)
+    @playlist = RSpotify::Playlist.find(@spotify_user.id, SPOTIFY_PLAYLIST_ID)
   end
 
   private
