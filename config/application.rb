@@ -20,5 +20,6 @@ module RailsSpotifyJukeboxRails
     config.i18n.default_locale = :'es-MX'
     config.eager_load_paths << Rails.root.join("lib")
     config.eager_load_paths << Rails.root.join("app/services")
+    config.active_job.queue_adapter = :sidekiq
   end
 end

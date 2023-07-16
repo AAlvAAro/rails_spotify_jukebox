@@ -53,8 +53,10 @@ gem "bootsnap", require: false
 
 gem "devise"
 gem "figaro"
-gem "rspotify"
 gem "kaminari"
+gem "rspotify"
+gem "sidekiq"
+gem "sidekiq-cron"
 
 group :production do
   gem 'sentry-raven'
