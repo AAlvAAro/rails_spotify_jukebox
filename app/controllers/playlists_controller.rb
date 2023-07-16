@@ -1,6 +1,6 @@
 class PlaylistsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_spotify_user
+  # before_action :set_spotify_user
 
   def show
     @playlist = RSpotify::Playlist.find(@spotify_user.id, SPOTIFY_PLAYLIST_ID)
