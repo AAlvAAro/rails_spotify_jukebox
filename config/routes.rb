@@ -22,5 +22,6 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:index, :show]
 
-  root 'playlists#show'
+  # root 'playlists#show'
+  root 'home#index'
 end
